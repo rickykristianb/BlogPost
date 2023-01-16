@@ -238,5 +238,5 @@ def delete_post(post_id):
 
 if __name__ == "__main__":
     app.run(host='localhost', port=5000, debug=True)
-    # with app.app_context():
-    #     db.create_all()
+    with app.app_context():
+        db.create_all()
