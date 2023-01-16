@@ -11,16 +11,11 @@ from flask_gravatar import Gravatar
 from sqlalchemy.exc import IntegrityError
 from functools import wraps
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
 ckeditor = CKEditor(app)
 Bootstrap(app)
-
-print(os.environ['SECRET_KEY'])
 
 ##CONNECT TO DB
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
@@ -238,5 +233,3 @@ def delete_post(post_id):
 
 if __name__ == "__main__":
     app.run(host='localhost', port=5000, debug=True)
-    with app.app_context():
-        db.create_all()
